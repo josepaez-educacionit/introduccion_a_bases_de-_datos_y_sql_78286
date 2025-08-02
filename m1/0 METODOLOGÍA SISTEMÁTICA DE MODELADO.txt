@@ -1,0 +1,79 @@
+METODOLOGÍA SISTEMÁTICA DE MODELADO
+
+// Que es Dominio del Negocio
+// El dominio del negocio se refiere al área específica de la empresa que se está modelando.
+
+
+Gestión Comercial --> "Gestión de Ventas"
+
+Fase 1: Análisis del dominio (recolección de información)
+Fase 2: Identificación de entidades (técnica de sustantivos)
+Fase 3: Identificación de atributos (técnica de características)
+Fase 4: Identificación de relaciones (técnica de verbos)
+Fase 5: Determinación de cardinalidades (técnica de conteo)
+Fase 6: Validación y refinamiento del modelo
+
+
+
+EJEMPLO PRÁCTICO: SISTEMA DE GESTIÓN COMERCIAL
+// --------------------------------------------------
+
+// Dominio: Gestión de Ventas
+// Entidades principales: categoria, cliente, vendedor, producto, pedido, detalle_pedido
+// Relaciones clave: cliente realiza pedido, pedido contiene detalle_pedido, producto pertenece a categoría, vendedor gestiona pedido
+
+
+## 1. Definición de Entidades y Atributos
+### 1.1 Entidad: CLIENTE
+| Atributo 		| Tipo | Restricciones | Descripción |
+| `id` 			| INTEGER | PK, NOT NULL, AUTO_INCREMENT | Identificador único del cliente |
+| `nombre` 		| VARCHAR(100) | NOT NULL | Nombre completo del cliente |
+| `correo_electronico` 	| VARCHAR(150) | NOT NULL, UNIQUE | Dirección de correo electrónico |
+| `telefono` 		| VARCHAR(20) | NULL | Número telefónico de contacto |
+
+
+### 1.2 Entidad: CATEGORIA
+| Atributo | Tipo | Restricciones | Descripción |
+|----------|------|---------------|-------------|
+| `id` 		| INTEGER | PK, NOT NULL, AUTO_INCREMENT | Identificador único de la categoría |
+| `nombre` 	| VARCHAR(50) | NOT NULL, UNIQUE | Nombre de la categoría de productos |
+
+
+### 1.3 Entidad: PRODUCTO
+| Atributo | Tipo | Restricciones | Descripción |
+|----------|------|---------------|-------------|
+| `id` | INTEGER | PK, NOT NULL, AUTO_INCREMENT | Identificador único del producto |
+| `nombre` | VARCHAR(100) | NOT NULL | Nombre del producto |
+| `precio` | DECIMAL(10,2) | NOT NULL, CHECK(precio > 0) | Precio unitario del producto |
+| `categoria_id` | INTEGER | FK, NOT NULL | Referencia a la categoría del producto |
+
+
+### 1.4 Entidad: VENDEDOR
+| Atributo | Tipo | Restricciones | Descripción |
+|----------|------|---------------|-------------|
+| `id` | INTEGER | PK, NOT NULL, AUTO_INCREMENT | Identificador único del vendedor |
+| `nombre` | VARCHAR(100) | NOT NULL | Nombre completo del vendedor |
+| `correo_electronico` | VARCHAR(150) | NOT NULL, UNIQUE | Dirección de correo electrónico |
+
+
+### 1.5 Entidad: PEDIDO
+| Atributo | Tipo | Restricciones | Descripción |
+|----------|------|---------------|-------------|
+| `id` | INTEGER | PK, NOT NULL, AUTO_INCREMENT | Identificador único del pedido |
+| `fecha` | DATE | NOT NULL | Fecha de realización del pedido |
+| `total` | DECIMAL(10,2) | NOT NULL, CHECK(total >= 0) | Monto total del pedido |
+| `cliente_id` | INTEGER | FK, NOT NULL | Referencia al cliente que realizó el pedido |
+| `vendedor_id` | INTEGER | FK, NOT NULL | Referencia al vendedor que gestionó el pedido |
+
+
+### 1.6 Entidad: DETALLEPEDIDO
+| Atributo | Tipo | Restricciones | Descripción |
+|----------|------|---------------|-------------|
+| `id` | INTEGER | PK, NOT NULL, AUTO_INCREMENT | Identificador único del detalle |
+| `pedido_id` | INTEGER | FK, NOT NULL | Referencia al pedido al que pertenece |
+| `producto_id` | INTEGER | FK, NOT NULL | Referencia al producto incluido |
+| `cantidad` | INTEGER | NOT NULL, CHECK(cantidad > 0) | Cantidad de productos pedidos |
+| `precio_unitario` | DECIMAL(10,2) | NOT NULL, CHECK(precio_unitario > 0) | Precio unitario al momento del pedido 
+
+
+

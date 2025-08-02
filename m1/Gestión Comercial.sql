@@ -1,0 +1,57 @@
+CREATE TABLE IF NOT EXISTS `CLIENTE` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`correo_electronico` varchar(150) NOT NULL UNIQUE,
+	`telefono` varchar(20),
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `CATEGORIA` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(50) NOT NULL UNIQUE,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `PRODUCTO` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`precio` decimal(10,2) NOT NULL,
+	`categoria_id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `VENDEDOR` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`correo_electronico` varchar(150) NOT NULL UNIQUE,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `PEDIDO` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`fecha` date NOT NULL,
+	`total` decimal(10,2) NOT NULL,
+	`cliente_id` int NOT NULL,
+	`vendedor_id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `DETALLEPEDIDO` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`pedido_id` int NOT NULL,
+	`producto_id` int NOT NULL,
+	`cantidad` int NOT NULL,
+	`precio_unitario` decimal(10,2) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+
+
+ALTER TABLE `PRODUCTO` ADD CONSTRAINT `PRODUCTO_fk3` FOREIGN KEY (`categoria_id`) REFERENCES `CATEGORIA`(`id`);
+
+ALTER TABLE `PEDIDO` ADD CONSTRAINT `PEDIDO_fk3` FOREIGN KEY (`cliente_id`) REFERENCES `CLIENTE`(`id`);
+
+ALTER TABLE `PEDIDO` ADD CONSTRAINT `PEDIDO_fk4` FOREIGN KEY (`vendedor_id`) REFERENCES `VENDEDOR`(`id`);
+ALTER TABLE `DETALLEPEDIDO` ADD CONSTRAINT `DETALLEPEDIDO_fk1` FOREIGN KEY (`pedido_id`) REFERENCES `PEDIDO`(`id`);
+
+ALTER TABLE `DETALLEPEDIDO` ADD CONSTRAINT `DETALLEPEDIDO_fk2` FOREIGN KEY (`producto_id`) REFERENCES `PRODUCTO`(`id`);
