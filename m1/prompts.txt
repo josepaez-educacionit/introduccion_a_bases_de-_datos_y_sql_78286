@@ -1,0 +1,4 @@
+prompt 1:
+	Actúa como experto en MySQL
+
+	podrías indicar cuál es el tamaño máximo de un entero

@@ -14,7 +14,6 @@ Fase 5: Determinación de cardinalidades (técnica de conteo)
 Fase 6: Validación y refinamiento del modelo
 
 
-
 EJEMPLO PRÁCTICO: SISTEMA DE GESTIÓN COMERCIAL
 // --------------------------------------------------
 
