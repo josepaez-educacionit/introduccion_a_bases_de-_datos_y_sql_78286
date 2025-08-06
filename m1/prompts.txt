@@ -1,4 +1,28 @@
 prompt 1:
-	Actúa como experto en MySQL
+	Actúa como experto en MySQL. Podrías indicar cuál es el tamaño máximo de un entero
 
-	podrías indicar cuál es el tamaño máximo de un entero
+
+prompt 2:
+Actúa como experto en mysql. 	
+Genera sentencias SQL `INSERT INTO` para poblar la tabla `Clientes` con 30 registros realistas que reflejen datos comunes de personas en Argentina.
+La estructura de la tabla es la siguiente:
+
+```sql
+CREATE TABLE Clientes (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Nombre VARCHAR(50) NOT NULL,
+  Apellido VARCHAR(50) NOT NULL,
+  Email VARCHAR(100),
+  Telefono VARCHAR(20),
+  Ciudad VARCHAR(50),
+  Provincia VARCHAR(50),
+  CodigoPostal VARCHAR(10)
+);
+
+Requisitos para los datos:
+Los nombres y apellidos deben ser comunes en Argentina.
+Los emails deben corresponder al nombre y apellido del cliente, con dominios frecuentes como gmail.com, hotmail.com, yahoo.com.
+Los teléfonos deben tener el formato argentino (incluyendo código de área), por ejemplo: +54 11 1234-5678.
+Las ciudades y provincias deben ser reales y consistentes entre sí (por ejemplo: Ciudad: "Rosario", Provincia: "Santa Fe").
+Los códigos postales deben coincidir con las ciudades ingresadas y seguir el formato argentino (por ejemplo: "C1001", "5000", "8300").
+La salida debe ser un script SQL completo con las 30 sentencias INSERT INTO Clientes (...) VALUES (...);.
