@@ -82,8 +82,26 @@ CREATE TABLE Clientes (
     CodigoPostal VARCHAR(10) 
 );
 
+# -------------------------------
+# ORDENAMIENTO - ORDER BY
+# -------------------------------
 -- Consultas para visualizar y ordenar los registros de la tabla Clientes
 select * from Clientes; -- Muestra todos los clientes
 select * from Clientes order by Id desc; -- Muestra los clientes ordenados por ID descendente
 select Apellido, Nombre from Clientes order by Apellido, Nombre; -- Muestra apellido y nombre ordenados alfabéticamente
 select Id, Apellido, Nombre, Provincia from Clientes order by Provincia, Apellido, Nombre; -- Muestra clientes ordenados por provincia y luego por apellido y nombre
+
+
+# -------------------------------
+# LIMITAR REGISTROS - LIMIT
+# -------------------------------
+
+SELECT * FROM Clientes LIMIT 10;
+SELECT * FROM Clientes ORDER BY Provincia LIMIT 5;
+
+# -----------------------------------------------
+# PAGINACIÓN - LIMIT + OFFSET
+# -----------------------------------------------
+
+SELECT * FROM Clientes LIMIT 5 OFFSET 20;
+
