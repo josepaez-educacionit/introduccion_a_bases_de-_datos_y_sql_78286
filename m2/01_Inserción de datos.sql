@@ -69,3 +69,81 @@ select * from ClientesVIP;
 
 
 
+/* 
+PROMPT: 
+Crear una sentencia INSERT que agregue 5 empleados.
+Base de datos: MySQL.
+Tabla: empleados.
+Columnas especificadas:
+	id → INT, AUTO_INCREMENT, PRIMARY KEY
+	nombre → VARCHAR(50)
+	apellido → VARCHAR(50)
+	email → VARCHAR(100), UNIQUE, NOT NULL
+	fecha_nacimiento → DATE
+	posicion → VARCHAR(50)
+	sueldo → DECIMAL(10,2)
+
+Restricciones clave:
+	id se genera automáticamente, por lo que no se incluirá en el INSERT.
+	email debe ser único y no nulo.
+
+Los datos deben respetar tipos y formatos (DATE en formato 'YYYY-MM-DD', DECIMAL(10,2) con dos decimales).
+*/
+
+-- =========================================
+-- 1. Creación de la tabla empleados
+-- =========================================
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    fecha_nacimiento DATE,
+    posicion VARCHAR(50),
+    sueldo DECIMAL(10,2)
+);
+
+-- =========================================
+-- 2. Inserción de 5 registros
+-- =========================================
+INSERT INTO empleados (nombre, apellido, email, fecha_nacimiento, posicion, sueldo)
+VALUES
+('Martín', 'González', 'martin.gonzalez@example.com', '1985-04-12', 'Analista de Sistemas', 185000.50),
+('Laura', 'Pérez', 'laura.perez@example.com', '1990-07-23', 'Desarrolladora Backend', 210500.75),
+('Diego', 'Fernández', 'diego.fernandez@example.com', '1988-11-05', 'Administrador de Redes', 198000.00),
+('Sofía', 'Martínez', 'sofia.martinez@example.com', '1993-02-17', 'Diseñadora UX/UI', 175300.25),
+('Carlos', 'Ramírez', 'carlos.ramirez@example.com', '1982-09-29', 'Gerente de Proyectos', 255800.90);
+
+SELECT * FROM empleados;
+
+
+
+/*
+Prompt: 
+	Genera una sentencia SQL para insertar 5 artículos en la tabla Articulos en MySQL. La tabla tiene las siguientes columnas: 
+		nombre (VARCHAR(100)), categoria (VARCHAR(50)), precio (DECIMAL(10,2)), stock (INT), y disponible (BOOLEAN). 
+        Los valores deben ser realistas y variados para cada artículo."
+*/
+
+-- =========================================
+-- 1. Creación de la tabla Articulos
+-- =========================================
+CREATE TABLE OtrosArticulos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    categoria VARCHAR(50),
+    precio DECIMAL(10,2),
+    stock INT,
+    disponible BOOLEAN
+);
+
+-- =========================================
+-- 2. Inserción de 5 artículos
+-- =========================================
+INSERT INTO OtrosArticulos (nombre, categoria, precio, stock, disponible)
+VALUES
+('Notebook Lenovo IdeaPad 3', 'Tecnología', 459999.99, 15, TRUE),
+('Silla Ergonómica Oficina', 'Muebles', 85000.50, 8, TRUE),
+('Smartphone Samsung Galaxy A34', 'Tecnología', 299999.90, 25, TRUE),
+('Cafetera Express Philips', 'Electrodomésticos', 120000.75, 5, FALSE),
+('Zapatillas Adidas Runfalcon', 'Calzado', 55000.00, 30, TRUE);
