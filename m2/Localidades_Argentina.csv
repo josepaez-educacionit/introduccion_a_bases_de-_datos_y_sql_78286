@@ -1,0 +1,21 @@
+LocalidadID,Nombre,CP,Provincia
+1,Buenos Aires,1000,Buenos Aires
+2,La Plata,1900,Buenos Aires
+3,Mar del Plata,7600,Buenos Aires
+4,Bahía Blanca,8000,Buenos Aires
+5,Tandil,7000,Buenos Aires
+6,Córdoba,5000,Córdoba
+7,Villa Carlos Paz,5152,Córdoba
+8,Río Cuarto,5800,Córdoba
+9,Villa María,5900,Córdoba
+10,Alta Gracia,5186,Córdoba
+11,Rosario,2000,Santa Fe
+12,Santa Fe,3000,Santa Fe
+13,Rafaela,2300,Santa Fe
+14,Venado Tuerto,2600,Santa Fe
+15,Reconquista,3560,Santa Fe
+16,Mendoza,5500,Mendoza
+17,San Rafael,5600,Mendoza
+18,Godoy Cruz,5501,Mendoza
+19,Luján de Cuyo,5507,Mendoza
+20,Maipú,5515,Mendoza

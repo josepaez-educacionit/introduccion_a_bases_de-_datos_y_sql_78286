@@ -1,0 +1,122 @@
+[
+    {
+        "LocalidadID": 21,
+        "Nombre": "San Miguel de Tucumán",
+        "CP": "4000",
+        "Provincia": "Tucumán"
+    },
+    {
+        "LocalidadID": 22,
+        "Nombre": "Tafí Viejo",
+        "CP": "4103",
+        "Provincia": "Tucumán"
+    },
+    {
+        "LocalidadID": 23,
+        "Nombre": "Concepción",
+        "CP": "4146",
+        "Provincia": "Tucumán"
+    },
+    {
+        "LocalidadID": 24,
+        "Nombre": "Yerba Buena",
+        "CP": "4107",
+        "Provincia": "Tucumán"
+    },
+    {
+        "LocalidadID": 25,
+        "Nombre": "Banda del Río Salí",
+        "CP": "4112",
+        "Provincia": "Tucumán"
+    },
+    {
+        "LocalidadID": 26,
+        "Nombre": "San Salvador de Jujuy",
+        "CP": "4600",
+        "Provincia": "Jujuy"
+    },
+    {
+        "LocalidadID": 27,
+        "Nombre": "Palpalá",
+        "CP": "4612",
+        "Provincia": "Jujuy"
+    },
+    {
+        "LocalidadID": 28,
+        "Nombre": "Perico",
+        "CP": "4610",
+        "Provincia": "Jujuy"
+    },
+    {
+        "LocalidadID": 29,
+        "Nombre": "La Quiaca",
+        "CP": "4650",
+        "Provincia": "Jujuy"
+    },
+    {
+        "LocalidadID": 30,
+        "Nombre": "Humahuaca",
+        "CP": "4630",
+        "Provincia": "Jujuy"
+    },
+    {
+        "LocalidadID": 31,
+        "Nombre": "San Fernando del Valle de Catamarca",
+        "CP": "4700",
+        "Provincia": "Catamarca"
+    },
+    {
+        "LocalidadID": 32,
+        "Nombre": "Belén",
+        "CP": "4750",
+        "Provincia": "Catamarca"
+    },
+    {
+        "LocalidadID": 33,
+        "Nombre": "Tinogasta",
+        "CP": "5340",
+        "Provincia": "Catamarca"
+    },
+    {
+        "LocalidadID": 34,
+        "Nombre": "Andalgalá",
+        "CP": "4740",
+        "Provincia": "Catamarca"
+    },
+    {
+        "LocalidadID": 35,
+        "Nombre": "Santa María",
+        "CP": "4139",
+        "Provincia": "Catamarca"
+    },
+    {
+        "LocalidadID": 36,
+        "Nombre": "Resistencia",
+        "CP": "3500",
+        "Provincia": "Chaco"
+    },
+    {
+        "LocalidadID": 37,
+        "Nombre": "Presidencia Roque Sáenz Peña",
+        "CP": "3700",
+        "Provincia": "Chaco"
+    },
+    {
+        "LocalidadID": 38,
+        "Nombre": "Villa Ángela",
+        "CP": "3540",
+        "Provincia": "Chaco"
+    },
+    {
+        "LocalidadID": 39,
+        "Nombre": "Charata",
+        "CP": "3730",
+        "Provincia": "Chaco"
+    },
+    {
+        "LocalidadID": 40,
+        "Nombre": "General José de San Martín",
+        "CP": "3509",
+        "Provincia": "Chaco"
+    }
+]
