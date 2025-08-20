@@ -1,0 +1,31 @@
+Actúa como experto en Mysql.
+Proporciona las sentencias para insertar 50 registros en la tabla Clientes.
+Los datos deben realistas de la región de Argentina
+
+CREATE TABLE IF NOT EXISTS `CLIENTES` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`correo_electronico` varchar(150) NOT NULL UNIQUE,
+	`telefono` varchar(20),
+	PRIMARY KEY (`id`)
+);
+
+Proporciona las sentencias para insertar 10 registros en la tabla Categorias.
+Los datos deben ser de categorias de Tecnología
+
+CREATE TABLE IF NOT EXISTS `CATEGORIAS` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(50) NOT NULL UNIQUE,
+	PRIMARY KEY (`id`)
+);
+
+Proporciona las sentencias para insertar 50 registros en la tabla Productos.
+Los datos de los productos deben estar relacionados con la tabla de categorias
+
+CREATE TABLE IF NOT EXISTS `PRODUCTOS` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`precio` decimal(10,2) NOT NULL,
+	`categoria_id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);

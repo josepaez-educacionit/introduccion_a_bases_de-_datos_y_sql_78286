@@ -1,0 +1,62 @@
+Create database GestionComercial;
+
+use GestionComercial;
+
+
+CREATE TABLE IF NOT EXISTS `CLIENTES` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`correo_electronico` varchar(150) NOT NULL UNIQUE,
+	`telefono` varchar(20),
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `CATEGORIAS` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(50) NOT NULL UNIQUE,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `PRODUCTOS` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`precio` decimal(10,2) NOT NULL,
+	`categoria_id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `VENDEDORES` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`nombre` varchar(100) NOT NULL,
+	`correo_electronico` varchar(150) NOT NULL UNIQUE,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `PEDIDOS` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`fecha` date NOT NULL,
+	`total` decimal(10,2) NOT NULL,
+	`cliente_id` int NOT NULL,
+	`vendedor_id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `DETALLESPEDIDO` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`pedido_id` int NOT NULL,
+	`producto_id` int NOT NULL,
+	`cantidad` int NOT NULL,
+	`precio_unitario` decimal(10,2) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+
+ALTER TABLE `PRODUCTOS` ADD CONSTRAINT `PRODUCTOS_CATEGORIAS` FOREIGN KEY (`categoria_id`) REFERENCES `CATEGORIAS`(`id`);
+
+ALTER TABLE `PEDIDOS` ADD CONSTRAINT `PEDIDOS_CLIENTES` FOREIGN KEY (`cliente_id`) REFERENCES `CLIENTES`(`id`);
+
+ALTER TABLE `PEDIDOS` ADD CONSTRAINT `PEDIDOS_VENDEDORES` FOREIGN KEY (`vendedor_id`) REFERENCES `VENDEDORES`(`id`);
+ALTER TABLE `DETALLESPEDIDO` ADD CONSTRAINT `DETALLESPEDIDO_PEDIDOS` FOREIGN KEY (`pedido_id`) REFERENCES `PEDIDOS`(`id`);
+
+ALTER TABLE `DETALLESPEDIDO` ADD CONSTRAINT `DETALLESPEDIDO_PRODUCTOS` FOREIGN KEY (`producto_id`) REFERENCES `PRODUCTOS`(`id`);
+
