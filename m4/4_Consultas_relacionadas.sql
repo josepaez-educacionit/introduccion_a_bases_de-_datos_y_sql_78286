@@ -11,6 +11,11 @@ select 	*
 from Productos, Marcas 
 order by idProducto, idmarca; 
 
+-- Cross Join
+SELECT *
+FROM Productos
+CROSS JOIN Marcas;
+
 -- Composición Interna (JOIN implícito)
 -- Permite obtener los datos de las tablas relacionadas usando la cláusula WHERE para unirlas por la clave foránea.
 select 	* 
