@@ -103,3 +103,55 @@ SELECT
 FROM razas r
 RIGHT JOIN especies e ON r.especie_id = e.id
 ORDER BY e.nombre, r.nombre;
+
+# CROSS JOIN
+/*
+El CROSS JOIN produce el producto cartesiano entre dos tablas: cada fila de la primera tabla se combina con cada fila de la segunda tabla.
+
+SELECT columnas
+FROM tabla1
+CROSS JOIN tabla2;
+
+Cuándo Usar CROSS JOIN
+	- Matrices de análisis (combinaciones veterinario-servicio)
+    - Análisis combinatorio en general
+*/
+
+-- Generar una matriz de todos los veterinarios con todos los servicios
+/*
+Resultado
+	✅ Incluye: Todas las combinaciones posibles
+	⚠️ Cuidado: Puede generar un número muy grande de filas
+*/
+select 
+    concat(v.apellido, ', ', v.nombre) as veterinario,
+    v.especialidad,
+	s.nombre AS servicio,
+    s.precio
+from veterinarios v
+cross join servicios s
+order by  veterinario;
+
+# Consulta con Múltiples JOINs
+
+-- Información completa de turnos con todos los datos relacionados
+select 	
+        concat(v.apellido, ', ', v.nombre) as Veterinario, v.matricula,
+		t.fecha, t.hora, 
+		et.nombre as EstadoTurno,
+		concat(c.apellido, ', ', c.nombre) as Cliente, c.telefono,
+        m.nombre as Mascota,
+        s.nombre as Servicio,
+        t.costo_total,
+        t.observaciones
+from turnos t
+	inner join estados_turno et on t.estado_turno_id = et.id
+    inner join veterinarios v on t.veterinario_id = v.id
+    inner join clientes c on t.cliente_id = c.id
+    inner join mascotas m on t.mascota_id = m.id
+    inner join servicios s on t.servicio_id = s.id
+order by   Veterinario, t.fecha, t.hora  
+;
+
+
+
